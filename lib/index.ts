@@ -118,8 +118,6 @@ export const resolveTwcConfig = <ThemeName extends string>(
             typeof defaultTheme == 'object' ? defaultTheme.light : defaultTheme;
          if (defaultThemeText == themeName) {
             defaultColors[colorName] = `,${h} ${s}% ${l}%`;
-         } else {
-            defaultColors[colorName] = `,${hslValues}`;
          }
          resolved.utilities[cssSelector][twcColorVariable] = hslValues;
          addRootUtilities(resolved.utilities, {
@@ -150,9 +148,13 @@ export const resolveTwcConfig = <ThemeName extends string>(
             // should have the priority over the tw class based opacity(e.g. "bg-opacity-90")
             // This is how tailwind behaves as for v3.2.4
             if (opacityVariable) {
-               return `hsl(var(${twcColorVariable}${defaultColors[colorName]}) / var(${twcOpacityVariable}, var(${opacityVariable})))`;
+               return `hsl(var(${twcColorVariable}${
+                  defaultColors[colorName] || ''
+               }) / var(${twcOpacityVariable}, var(${opacityVariable})))`;
             }
-            return `hsl(var(${twcColorVariable}${defaultColors[colorName]}) / var(${twcOpacityVariable}, 1))`;
+            return `hsl(var(${twcColorVariable}${
+               defaultColors[colorName] || ''
+            }) / var(${twcOpacityVariable}, 1))`;
          };
       });
    });

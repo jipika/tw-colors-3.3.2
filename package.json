@@ -1,10 +1,10 @@
 {
    "name": "tw-colors-3.3.2",
-   "version": "3.3.2",
+   "version": "1.0.0",
    "author": {
-      "name": "Laurent Blondy",
-      "email": "laurent.blondy1@gmail.com",
-      "url": "https://github.com/L-Blondy"
+      "name": "jipika",
+      "email": "kiritte@outlook.com",
+      "url": "https://github.com/jipika"
    },
    "description": "Tailwind plugin for switching color theme with just one className",
    "keywords": [

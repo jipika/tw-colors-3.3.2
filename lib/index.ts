@@ -113,12 +113,13 @@ export const resolveTwcConfig = <ThemeName extends string>(
          // add the css variables in "@layer utilities" for the hsl values
 
          const hslValues = `${h} ${s}% ${l}%`;
+
          const defaultThemeText =
             typeof defaultTheme == 'object' ? defaultTheme.light : defaultTheme;
          if (defaultThemeText == themeName) {
             defaultColors[colorName] = `,${h} ${s}% ${l}%`;
          } else {
-            defaultColors[colorName] = '';
+            defaultColors[colorName] = `,${hslValues}`;
          }
          resolved.utilities[cssSelector][twcColorVariable] = hslValues;
          addRootUtilities(resolved.utilities, {
@@ -141,7 +142,6 @@ export const resolveTwcConfig = <ThemeName extends string>(
          // set the dynamic color in tailwind config theme.colors
          resolved.colors[colorName] = ({ opacityVariable, opacityValue }) => {
             // if the opacity is set  with a slash (e.g. bg-primary/90), use the provided value
-
             if (!isNaN(+opacityValue)) {
                return `hsl(var(${twcColorVariable}${defaultColors[colorName]}) / ${opacityValue})`;
             }

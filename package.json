@@ -1,6 +1,6 @@
 {
-   "name": "tw-colors-3.3.2",
-   "version": "1.0.2",
+   "name": "tw-colors-v3",
+   "version": "1.0.0",
    "author": {
       "name": "jipika",
       "email": "kiritte@outlook.com",
@@ -60,7 +60,7 @@
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/jipika/tw-colors-3.3.2"
+      "url": "https://github.com/jipika/tw-colors-v3"
    },
    "license": "MIT"
 }
